@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,3 +24,27 @@ Auth::routes([
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/posts', [PostController::class, 'index']);
+
+Route::get('/posts/create', function () {
+    return view('posts.create');
+});
+
+Route::post('posts/post', [PostController::class, 'store']);
+Route::delete('posts/delete/{id}', [PostController::class, 'destroy']);
+Route::get('posts/edit/{id}', [PostController::class, 'edit']);
+
+Route::delete('posts/deleteimage/{id}', [PostController::class, 'deleteImage']);
+Route::delete('posts/deletecover/{id}', [PostController::class, 'deleteCover']);
+
+Route::put('posts/update/{id}', [PostController::class, 'update']);
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+
+
+
+
+
