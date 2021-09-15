@@ -25,13 +25,13 @@ Auth::routes([
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/posts/create', function () {
     return view('posts.create');
 });
 
-Route::post('posts/post', [PostController::class, 'store']);
+Route::post('posts/post', [PostController::class, 'store'])->name('posts.store');
 Route::delete('posts/delete/{id}', [PostController::class, 'destroy']);
 Route::get('posts/edit/{id}', [PostController::class, 'edit']);
 

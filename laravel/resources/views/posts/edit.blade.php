@@ -1,22 +1,21 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Edit page</title>
-
-      <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-     <!-- Font-awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    </head>
-    <body>
-        <div class="container" style="margin-top: 50px;">
+@extends('layouts.admin')
+@section('title')Edit page @endsection
+@section('content')
+<body>
+        <div class="container">
             <div class="row">
-
-
+            <div class="container mt-4">
+                @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                @endif
+            </div>
                 <div class="col-lg-3">
                     <p>Cover:</p>
                     <form action="/posts/deletecover/{{ $posts->id }}" method="post">
@@ -26,8 +25,6 @@
                     </form>
                     <img src="/cover/{{ $posts->cover }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
                     <br>
-
-
 
                      @if (count($posts->images)>0)
                      <p>Images:</p>
@@ -40,35 +37,66 @@
                      <img src="/images/{{ $img->image }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
                      @endforeach
                      @endif
-
                 </div>
 
-
-                <div class="col-lg-6">
-                    <h3 class="text-center text-danger"><b>Udate Post</b> </h3>
+            <div class="col-lg-6">
 				    <div class="form-group">
-                        <form action="/posts/update/{{ $posts->id }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            @method("put")
-                        <input type="text" name="title" class="form-control m-2" placeholder="title" value="{{ $posts->title }}">
-                        <Textarea name="body" cols="20" rows="4" class="form-control m-2" placeholder="body">{{ $posts->body }}</Textarea>
-                        <label class="m-2">Cover Image</label>
-                        <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="cover">
+              <div class="card card-primary">
+                <div class="card-header" style="background-color: #435d7d;">
+                  <h3 class="card-title">Edit Storie</h3>
+                </div>
 
-                        <label class="m-2">Images</label>
-                        <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="images[]" multiple>
+              <form action="/posts/update/{{ $posts->id }}" method="post" enctype="multipart/form-data">
+              @csrf
+              @method("put")
+                <div class="card-body pb-1">
+                  <div class="form-group">
+                    <label>Storie title</label>
+                    <input type="text" class="form-control" placeholder="Enter title" name="title" value="{{ $posts->title }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Description</label>
+                    <Textarea name="body" class="form-control" placeholder="Enter description">{{ $posts->body }}</Textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Cover image</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="cover">
+                        <label class="custom-file-label" >Choose file</label>
+                      </div>
+                    </div>
+                  </div>
 
-                        <label class="m-2">Is published</label>
-
-                            <div class="col-md-6">
-                                <input type=radio name="is_published" value="1" {{ $posts->is_published == '1' ? 'checked' : '' }}>Yes</option>
-                                <input type=radio name="is_published" value="0" {{ $posts->is_published == '0' ? 'checked' : '' }}>No</option>            
-                            </div>
-
-                        <button type="submit" class="btn btn-danger mt-3 ">Submit</button>
-                        </form>
+                  <div class="form-group">
+                    <label>Images</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="images[]" multiple>
+                        <label class="custom-file-label" >Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                <label>Publish settings</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="is_published" value="1" {{ $posts->is_published == '1' ? 'checked' : '' }}><label class="form-check-label">
+                        Publish
+                    </label>
+                  </option>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="is_published" value="0" {{ $posts->is_published == '0' ? 'checked' : '' }}><label class="form-check-label">
+                        Don't publish
+                    </label></option>
+                </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
                    </div>
                 </div>
             </div>
          </body>
-</html>
+@endsection

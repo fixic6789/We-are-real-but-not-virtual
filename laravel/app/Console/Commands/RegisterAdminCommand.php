@@ -64,8 +64,8 @@ class RegisterAdminCommand extends Command
     {
         $details['name'] = $this->ask('Name');
         $details['email'] = $this->ask('Email');
-        $details['password'] = $this->secret('Password');
-        $details['confirm_password'] = $this->secret('Confirm password');
+        $details['password'] = $this->ask('Password');
+        $details['confirm_password'] = $this->ask('Confirm password');
 
         while (! $this->isValidPassword($details['password'], $details['confirm_password'])) {
             if (! $this->isRequiredLength($details['password'])) {
@@ -76,8 +76,8 @@ class RegisterAdminCommand extends Command
                 $this->error('Password and Confirm password do not match');
             }
 
-            $details['password'] = $this->secret('Password');
-            $details['confirm_password'] = $this->secret('Confirm password');
+            $details['password'] = $this->ask('Password');
+            $details['confirm_password'] = $this->ask('Confirm password');
         }
 
         return $details;

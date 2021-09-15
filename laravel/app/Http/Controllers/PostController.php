@@ -123,6 +123,8 @@ class PostController extends Controller
         $request->validate([
             'cover' => 'image|max:2048',
             'images.*' => 'mimes:jpeg,jpg,png,gif,pdf|max:2048',
+            'body' => 'required',
+            'title' => 'required',
         ]);
 
         $post = Post::findOrFail($id);
