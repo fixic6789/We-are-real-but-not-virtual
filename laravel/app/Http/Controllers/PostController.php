@@ -214,9 +214,7 @@ class PostController extends Controller
         {
             File::delete("cover/".$cover);
         }
-
-        // Post::find($id)->delete();
-        
+                
         return back();
     }
 }
