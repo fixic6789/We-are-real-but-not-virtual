@@ -44,7 +44,7 @@
 						<td><img src="cover/{{ $post->cover }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""></td>
 						<td>{{ date_format($post->created_at, 'jS M Y') }}</td></td>
 						<td>
-							<a href="edit/{{ $post->id }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+							<a href="posts/edit/{{ $post->id }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
 
 							<a href="#" class="delete" onclick="event.preventDefault(); document.getElementById('posts/delete/{{ $post->id }}').submit();">
 								<i class="material-icons" title="" data-original-title="Delete"></i>
