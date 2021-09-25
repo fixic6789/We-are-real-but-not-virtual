@@ -27,6 +27,7 @@ color: #000000;
     transition: 0.5s all;
 }
 .feedback{
+    display: none;
     position: fixed;
     top: 12%;
     right: 5%;
@@ -34,26 +35,33 @@ color: #000000;
     height: 387px;
     background: #FEFAF7;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-    display: flex;
     flex-direction: column;
     z-index: 9999;
 }
-.feedback .form-head{
+.feedback.active{
+    display: flex;
+    transition: 0.5s all;
+}
+
+.form-head{
     display: flex;
     width: 100%;
     height: 56px;
     background: #FFE8E8;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    gap: 23%;
-    
+    gap: 13%;
 }
-.feedback .form-head h3{
+.form-head h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
     font-size: 18px;
     line-height: 27px;
 }
-.feedback .form-head button{
+.form-head button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,14 +69,14 @@ color: #000000;
     cursor: pointer;
     background: none;
 }
-.feedback .form-head button:hover{
+.form-head button:hover{
     fill: #aaaaaa;
 }
-.feedback .form-body{
+.form-body{
     width: 100%;
     height: 100%;
 }
-.feedback .form-body form{
+.form-body form{
     display: flex;
     width: 100%;
     height: 100%;
@@ -78,7 +86,7 @@ color: #000000;
     gap: 5%
 }
 
-.feedback .form-body form input[type=text], textarea{
+.form-body form input[type=text], textarea{
     border: none;
     background: #FFFFFF;
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -113,4 +121,22 @@ color: #000000;
 .form-submit:hover{
     border: 0.5px solid #000000;
     border-radius: 5px;
+}
+
+.order{
+    display: none;
+    position: fixed;
+    top: 12%;
+    right: 5%;
+    width: 400px;
+    height: 387px;
+    background: #FEFAF7;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    z-index: 9999;
+
+}
+.order.active{
+    display: flex;
+    transition: 0.5s all;
 }

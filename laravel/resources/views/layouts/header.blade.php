@@ -11,9 +11,13 @@
     <header>
         <nav class="menu">
             <div class="logo">
-                <a href="/">
+                @if (Request::is('/'))
                     <img  src="/storage/img/logo.png" alt="">
-                </a>
+                @else
+                    <a href="/">
+                        <img  src="/storage/img/logo.png" alt="">
+                    </a>
+                @endif
             </div>
             <div class="navigation">
                 <ul>
