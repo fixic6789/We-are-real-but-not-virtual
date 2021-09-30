@@ -8,29 +8,22 @@
 
     margin: 0;
     padding: 0;
-}
-
-body {
     box-sizing: border-box;
 }
 
 header {
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 907px;
-    background-image: url(/storage/img/photographer.png);
-    background-repeat: no-repeat;
     overflow: hidden;
-    z-index: 3;
+    z-index: 999;
 }
 
 .fixed-background{
-    position: absolute;
     background-image: url(/storage/img/background.png);
     position: fixed;
     width: 100%;
     height: 100vh;
-    z-index: 1;
+    z-index: auto;
 }
 
 .menu {
@@ -59,7 +52,6 @@ header {
 }
 .navigation ul li a {
     text-decoration: none;
-
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
@@ -96,6 +88,13 @@ header {
     text-transform: uppercase;
     gap: 25%;
 }
+.nav-buttons ul li .call-us{
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
 .nav-buttons ul li button {
     text-decoration: none;
     outline: none;
@@ -110,33 +109,36 @@ header {
     color: #000000;
     
 }
-.header-content{
+.welcome{
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 158vh;
     display: flex;
     flex-flow: column;
     align-content: center;
     align-items: flex-end;
+
+    background-image: url(/storage/img/photographer.png);
+    background-repeat: no-repeat;
 }
-.header-content p{
+.welcome p{
     font-weight: 300;
     font-size: 18px;
 }
-.header-content h1{
+.welcome h1{
     font-family: Ogg;
     font-style: normal;
     font-weight: normal;
     font-size: 96px;
 }
-.header-content h2{
+.welcome h2{
     font-family: Ogg;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
     margin-left: 35%;
 }
-.header-text{
+.welcome-text{
     margin-top: 9%;
     margin-right: 10%;
     width: 50%;
@@ -146,10 +148,6 @@ header {
 }
 
 .order-photo{
-    position: absolute;
-    left: 807px;
-    top: 450px;
-
     width: 120px;
     height: 120px;
     display: flex;
@@ -168,10 +166,20 @@ header {
     cursor: pointer;
     background: none;
 }
+.order-photo.btn-1{
+    position: absolute;
+    left: 807px;
+    top: 450px;
+}
+.order-photo.btn-2{
+    position: relative;
+}
 .order-photo  .order-arrow{
     position: absolute;
-    left: -15px;
+    left: -15px; 
 }
+
+
 .live-chat{
     position: fixed;
     width: 160px;
@@ -215,4 +223,86 @@ header {
     flex-direction: column;
     align-content: center;
     justify-content: space-evenly;
+}
+
+
+/*           Photo stories          */
+
+.photo-stories{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-flow: row;
+}
+.side-text{
+    width: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    margin-left: 40px;
+}
+.side-text p{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+}
+.photo-stories-text{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 15%;
+    z-index: 2;
+}
+.photo-stories-text h2{
+    font-family: Ogg;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 88px;
+}
+.photo-stories-text p{
+    width: 75%;
+}
+
+.polaroid-photos{
+    display: flex;
+    z-index: 1;
+
+}
+.polaroid-photo{
+    position: absolute;
+    right: 5%;
+}
+.polaroid-photo.photo-1{
+    right: 38%;
+}
+
+.polaroid-photo.photo-2{
+    right: 12%;
+}
+
+.polaroid-photo.photo-3{
+    right: 23%;
+    top: 36%
+}
+
+@media screen and (min-width: 1200px) {
+    
+}
+
+@media screen and (max-width: 900px) {
+    
 }
