@@ -15,6 +15,7 @@ class Post extends Model
         'body',
         'cover',
         'is_published',
+        'cover_size',
     ];
 
     public function images() {

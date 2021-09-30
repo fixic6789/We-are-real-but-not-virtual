@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class PostController extends Controller
@@ -59,12 +60,14 @@ class PostController extends Controller
             $file = $request->file("cover");
             $imageName = time().'_'.$file->getClientOriginalName();
             $file->move(\public_path("cover/"), $imageName);
+            $coverSize = File::size(\public_path("cover/".$imageName));
 
             $post = new Post([
                 "title" => $request->title,
                 "body" => $request->body,
                 "cover" => $imageName,
                 "is_published" => $request->is_published,
+                "cover_size" => $coverSize,
             ]);
 
             $post -> save();
@@ -74,10 +77,12 @@ class PostController extends Controller
         {
             $files = $request -> file("images");
             foreach($files as $file)
-            {
+            {   
                 $imageName = time().'_'.$file->getClientOriginalName();
+                $imageSize = $file->getSize();
                 $request['post_id'] = $post->id;
                 $request['image'] = $imageName;
+                $request['image_size'] = $imageSize;
                 $file->move(\public_path("/images"), $imageName);
                 Image::create($request->all());
             } 
@@ -93,7 +98,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
     }
@@ -106,9 +111,20 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $posts = Post::findOrFail($id);
+        $post = Post::findOrFail($id);
+        foreach ($post->images as $key => $image) {
+            $images[] = "<img src='/images/$image->image' class='file-preview-image' alt='$image->image'>";
+            $imageName[] = $image->image;
+            $imageSize[] = $image->image_size;
+            $imageDeleteUrl[] = "/posts/deleteimage/$image->id";
+        }
 
-        return view('posts.edit')->with('posts', $posts);
+        $cover = "<img src='/cover/$post->cover' class='file-preview-image' alt='$post->cover'>";
+        $coverName = $post->cover;
+        $coverSize = $post->cover_size;
+        $coverDeleteUrl = "/posts/deletecover/$post->id";
+
+        return view('posts.edit', ['posts'=>$post, 'images'=>$images, 'imageName'=>$imageName, 'imageSize'=>$imageSize, 'imageDeleteUrl'=>$imageDeleteUrl, 'cover'=>$cover, 'coverName'=>$coverName, 'coverSize'=>$coverSize, 'coverDeleteUrl'=>$coverDeleteUrl]);
     }
 
     /**
@@ -155,8 +171,10 @@ class PostController extends Controller
             $files = $request->file("images");
             foreach ($files as $file) {
                 $imageName = time().'_'.$file->getClientOriginalName();
-                $request["post_id"] = $id;
-                $request["image"] = $imageName;
+                $imageSize = $file->getSize();
+                $request['post_id'] = $post->id;
+                $request['image'] = $imageName;
+                $request['image_size'] = $imageSize;
                 $file->move(\public_path("images"), $imageName);
                 Image::create($request->all());
             }
@@ -176,22 +194,28 @@ class PostController extends Controller
     {
         $posts = Post::findOrFail($id);
 
-            if(File::exists("cover/".$posts->cover))
-            {
-                File::delete("cover/".$posts->cover);
-            }
+        if (File::exists("cover/".$posts->cover))
+        {
+            File::delete("cover/".$posts->cover);
+        } else {
+            dd('File does not exist.');
+        }
 
-            $images = Image::where("post_id", $posts->id)->get();
-            foreach($images as $image) 
+        $images = Image::where("post_id", $posts->id)->get();
+        
+        foreach($posts->images as $key => $image) 
+        {   
+            if(File::exists(public_path("images/".$images[$key]->image))) 
             {
-                if(File::exists("images/".$posts->image)) 
-                {
-                    File::delete("images/".$posts->image);
-                }
+                File::delete(public_path("images/".$images[$key]->image));
+                $image->delete();
+            } else {
+                dd('File does not exist.');
             }
+        }
 
-            $posts->delete();
-            return back()->with('deleted','Story deleted successfully');
+        $posts->delete();
+        return back()->with('deleted','Story deleted successfully');
     }
 
     public function deleteImage($id)
@@ -203,10 +227,13 @@ class PostController extends Controller
         }
         
         Image::find($id)->delete();
-        return back()->with('success','Story deleted successfully');;
+
+        return json_encode([
+            'initialPreview' => $images,
+            'append' => true
+        ]);
     }
 
-    
     public function deleteCover($id)
     {
         $cover = Post::findOrFail($id)->cover;
@@ -214,7 +241,10 @@ class PostController extends Controller
         {
             File::delete("cover/".$cover);
         }
-                
-        return back();
+
+        return json_encode([
+            'initialPreview' => $cover,
+            'append' => true
+        ]);
     }
 }
