@@ -1,7 +1,13 @@
 {
     "/js/app.js": "/js/app.js",
+<<<<<<< HEAD
     "/js/admin.js": "/js/admin.js",
     "/js/sidebar.js": "/js/sidebar.js",
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css"
+=======
+    "/js/forms.js": "/js/forms.js",
+    "/css/forms.css": "/css/forms.css",
+    "/css/app.css": "/css/app.css"
+>>>>>>> 01023536f288dc8096605acaf7a5573be88c3a25
 }

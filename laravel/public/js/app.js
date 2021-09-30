@@ -49302,6 +49302,7 @@ function repeat$1 (str, n) {
 
 
 
+<<<<<<< HEAD
 function createFunction (code, errors) {
   try {
     return new Function(code)
@@ -49310,6 +49311,26 @@ function createFunction (code, errors) {
     return noop
   }
 }
+=======
+/***/ "./resources/scss/forms.scss":
+/*!***********************************!*\
+  !*** ./resources/scss/forms.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/***/ ((module) => {
+>>>>>>> 01023536f288dc8096605acaf7a5573be88c3a25
 
 function createCompileToFunctionFn (compile) {
   var cache = Object.create(null);
@@ -49746,8 +49767,13 @@ Vue.compile = compileToFunctions;
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
+<<<<<<< HEAD
 /******/ 			"css/app": 0,
 /******/ 			"css/admin": 0
+=======
+/******/ 			"css/forms": 0,
+/******/ 			"css/app": 0
+>>>>>>> 01023536f288dc8096605acaf7a5573be88c3a25
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -49797,9 +49823,15 @@ Vue.compile = compileToFunctions;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+<<<<<<< HEAD
 /******/ 	__webpack_require__.O(undefined, ["css/app","css/admin"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	__webpack_require__.O(undefined, ["css/app","css/admin"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/admin"], () => (__webpack_require__("./resources/sass/admin.scss")))
+=======
+/******/ 	__webpack_require__.O(undefined, ["css/forms","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/forms","css/app"], () => (__webpack_require__("./resources/scss/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/forms","css/app"], () => (__webpack_require__("./resources/scss/forms.scss")))
+>>>>>>> 01023536f288dc8096605acaf7a5573be88c3a25
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
