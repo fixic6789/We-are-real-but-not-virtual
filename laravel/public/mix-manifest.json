@@ -1,10 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/admin.js": "/js/admin.js",
-<<<<<<< HEAD
     "/js/sidebar.js": "/js/sidebar.js",
-=======
->>>>>>> main
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css"
 }
