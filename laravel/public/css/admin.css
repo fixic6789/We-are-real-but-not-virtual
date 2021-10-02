@@ -1,0 +1,131 @@
+.bg-mynav {
+  background-color: #2c3e50;
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+body {
+  font-size: 1.25rem;
+  background-color: #eeeeee !important;
+}
+
+td {
+  line-height: 1.75rem;
+  vertical-align: middle;
+  min-width: 75px;
+}
+
+.kv-file-upload {
+  color: #fff !important;
+  visibility: hidden !important;
+}
+
+.file-zoom-content, .file-preview-image {
+  height: 400px;
+  width: auto;
+}
+
+.nav {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.navbar {
+  background-color: #d1d1d1 !important;
+}
+
+#edit-icon {
+  color: #ffc107;
+}
+
+#delete-icon {
+  color: #dc3545;
+}
+
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.card-primary {
+  width: 203%;
+}
+
+.card-title {
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #5c636a !important;
+}
+
+.form-check-input:checked {
+  background-color: #5c636a !important;
+  border-color: #5c636a !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #5c636a !important;
+  border-color: #5c636a !important;
+}
+
+.page-item.active .page-link {
+  background-color: #5c636a !important;
+  border-color: #5c636a !important;
+}
+
+.page-link {
+  color: black !important;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
