@@ -50,6 +50,7 @@ class RegisterAdminCommand extends Command
     {
         $details = $this->getDetails();
 
+        $details['password'] = Hash::make($details['password']);
         $admin = $this->user->createAdmin($details);
 
         $this->display($admin);
@@ -64,8 +65,8 @@ class RegisterAdminCommand extends Command
     {
         $details['name'] = $this->ask('Name');
         $details['email'] = $this->ask('Email');
-        $details['password'] = $this->ask('Password');
-        $details['confirm_password'] = $this->ask('Confirm password');
+        $details['password'] = $this->secret('Password');
+        $details['confirm_password'] = $this->secret('Confirm password');
 
         while (! $this->isValidPassword($details['password'], $details['confirm_password'])) {
             if (! $this->isRequiredLength($details['password'])) {

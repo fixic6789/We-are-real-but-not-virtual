@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('main');
 });
 
+Auth::routes([
+    'register' => false,
+]);
+
 Route::get('/admin', [HomeController::class, 'index'])->name('admin');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
