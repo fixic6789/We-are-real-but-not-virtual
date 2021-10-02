@@ -6,29 +6,29 @@ let orderBtn = document.querySelectorAll(".order-photo");
 let order = document.querySelector(".order");
 
 
-function openWindow (btn, formName){
-    btn.forEach((button) =>{
+function openWindow(btn, formName) {
+    btn.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             modalWindows.classList.add('active');
             formName.classList.add('active');
             disableScroll();
-        })
+        });
     });
 }
 
-function closeWindow (formName){
+function closeWindow(formName) {
     close.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             modalWindows.classList.remove('active');
             formName.classList.remove('active');
             enableScroll();
-        }) 
+        });
     });
 
     document.addEventListener('click', (e) => {
-        if(e.target === modalWindows){
+        if (e.target === modalWindows) {
             modalWindows.classList.remove('active');
             formName.classList.remove('active');
             enableScroll();
@@ -36,8 +36,9 @@ function closeWindow (formName){
     });
 }
 
-function disableScroll() { document.body.style.overflow="hidden";  }
-function enableScroll() { document.body.style.overflow="initial";  }
+function disableScroll() { document.body.style.overflow = "hidden"; }
+
+function enableScroll() { document.body.style.overflow = "initial"; }
 
 openWindow(getInTouchBtn, feedback);
 closeWindow(feedback);
