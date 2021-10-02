@@ -74,4 +74,6 @@
                 </div>
             </div>
          </body>
+@include('layouts.includes.scripts')
+<script type="text/javascript" src="{{ URL::asset('js/admin.js') }}"></script>
 @endsection

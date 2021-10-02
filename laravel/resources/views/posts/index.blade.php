@@ -63,5 +63,6 @@
         	</div>
       </div>
     </div>
+   @include('layouts.includes.scripts')
 @endsection
 

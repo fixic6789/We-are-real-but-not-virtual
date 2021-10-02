@@ -21,10 +21,6 @@ Route::get('/', function () {
     return view('main');
 });
 
-Auth::routes([
-    'register' => false,
-]);
-
 Route::get('/admin', [HomeController::class, 'index'])->name('admin');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
@@ -39,7 +35,6 @@ Route::get('posts/edit/{id}', [PostController::class, 'edit']);
 Route::put('posts/update/{id}', [PostController::class, 'update'])->name('posts.update');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
 Route::delete('posts/deleteimage/{id}', [PostController::class, 'deleteImage'])->name('posts.deleteImage');
 
 Route::delete('posts/deletecover/{id}', [PostController::class, 'deleteCover'])->name('posts.deleteCover');
@@ -53,3 +48,7 @@ Route::delete('posts/deletecover/{id}', [PostController::class, 'deleteCover'])-
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -35,11 +35,6 @@ td {
   width: auto;
 }
 
-.file-caption-icon {
-  padding-left: 0px !important;
-  padding-top: 4px !important;
-}
-
 .nav {
   margin-left: auto;
   margin-right: 0;
@@ -84,20 +79,6 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   margin-left: 0;
 }
 
-@media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-left: 0;
-  }
-
-  #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
-  }
-
-  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
-    margin-left: -15rem;
-  }
-}
 .card-primary {
   width: 203%;
 }
@@ -132,4 +113,19 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 .page-link {
   color: black !important;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }
 }
