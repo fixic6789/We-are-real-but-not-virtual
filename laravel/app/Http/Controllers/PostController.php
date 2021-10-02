@@ -25,6 +25,7 @@ class PostController extends Controller
     public function index()
     {   
         $posts = Post::latest()->paginate(25);
+
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -52,7 +53,7 @@ class PostController extends Controller
             'cover' => 'required|image|max:2048',
             'images' => 'required',
             'images.*' => 'mimes:jpeg,jpg,png,gif,pdf|max:2048',
-            'is_published' => 'required',
+            'was_published' => 'required',
         ]);
 
         if($request->hasFile("cover")) 
@@ -66,7 +67,7 @@ class PostController extends Controller
                 "title" => $request->title,
                 "body" => $request->body,
                 "cover" => $imageName,
-                "is_published" => $request->is_published,
+                "was_published" => $request->was_published,
                 "cover_size" => $coverSize,
             ]);
 
@@ -88,7 +89,7 @@ class PostController extends Controller
             } 
         }
 
-        return redirect("/posts")->with('success','Story created successfully');
+        return redirect("/admin/posts")->with('success','Story created successfully');
 
     }
 
@@ -157,13 +158,13 @@ class PostController extends Controller
             $request['cover'] = $post->cover;
         }
 
-        $post->is_published = $request->input('is_published');
+        $post->was_published = $request->input('was_published');
 
         $post->update([
             "title" => $request->title,
             "body" => $request->body,
             "cover" => $post->cover,
-            "is_published" => $post->is_published,
+            "was_published" => $post->was_published,
         ]);
 
 
@@ -180,7 +181,7 @@ class PostController extends Controller
             }
         }
 
-        return redirect('posts')->with('success','Story updated successfully');
+        return redirect('/admin/posts')->with('success','Story updated successfully');
          
     }
 

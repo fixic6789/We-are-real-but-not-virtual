@@ -14,7 +14,7 @@ class Post extends Model
         'title',
         'body',
         'cover',
-        'is_published',
+        'was_published',
         'cover_size',
     ];
 

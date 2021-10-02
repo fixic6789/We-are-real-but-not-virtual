@@ -16,7 +16,7 @@
       <div class="d-flex bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight"><h2>Stories</h2></div>
         <div class="p-2 bd-highlight">
-          <a href="/posts/create" type="button" class="btn btn-secondary mt-1">Create</a>
+          <a href="/admin/posts/create" type="button" class="btn btn-secondary mt-1">Create</a>
         </div>
       </div>
       
@@ -29,26 +29,34 @@
               <th scope="col">Title</th>
               <th scope="col">Description</th>
               <th scope="col">Date</th>
+              <th scope="col">Published</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody id="mytable">
           @foreach ($posts as $post)
-            <tr>
+            <tr class="storie-label">
               <td>{{ $post->id }}</td>
               <td>
-              <img width="50px" src="cover/{{ $post->cover }}" class="img-responsive"></td>
+              <img width="50px" src="{{ asset('cover/').'/'.$post->cover }}" class="img-responsive"></td>
               <td>{{ $post->title }}</td>
               <td><p class="description">{{ $post->body }}</p></td>
               <td>{{ date_format($post->created_at, 'jS M Y') }}</td>
               <td>
-              <a href="posts/edit/{{ $post->id }}" class="edit" data-toggle="modal"><i class="material-icons" id="edit-icon" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+                @if ($post->was_published == 1)
+                  Yes
+                @else
+                  No
+                @endif
+              </td>
+              <td>
+              <a href="/admin/posts/edit/{{ $post->id }}" class="edit" data-toggle="modal"><i class="material-icons" id="edit-icon" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
 
-              <a href="#" class="delete" onclick="event.preventDefault(); document.getElementById('posts/delete/{{ $post->id }}').submit();">
+              <a href="#" class="delete" onclick="event.preventDefault(); document.getElementById('/admin/posts/delete/{{ $post->id }}').submit();">
                 <i class="material-icons" title="" id="delete-icon" data-original-title="Delete"></i>
               </a>
 
-              <form action="posts/delete/{{ $post->id }}" method="post" id="posts/delete/{{ $post->id }}" style="display: none;">
+              <form action="/admin/posts/delete/{{ $post->id }}" method="post" id="/admin/posts/delete/{{ $post->id }}" style="display: none;">
 								@csrf
 								@method('delete')
 								<input type="hidden" value="{{ $post->id }}" name="id">

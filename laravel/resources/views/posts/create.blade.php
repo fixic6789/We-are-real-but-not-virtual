@@ -24,7 +24,7 @@
                 <div class="card-header" style="background-color: #435d7d;">
                   <h3 class="card-title">Add Storie</h3>
                 </div>
-              <form action="/posts/post" method="post" enctype="multipart/form-data">
+              <form action="/admin/posts/post" method="post" enctype="multipart/form-data">
               @csrf
                 <div class="card-body pb-1">
                   <div class="form-group">
@@ -51,15 +51,15 @@
                   
                 <label>Publish settings</label>
                 <div class="form-group pl-1">
+                <label class="form-check-label">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="is_published" value="1" checked>
-                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="was_published" value="1" checked>
                       Publish
                     </label>
                   </div>
+                  <label class="form-check-label">
                   <div class="form-check">
-                  <input class="form-check-input" type="radio" name="is_published" value="0" checked>
-                    <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="was_published" value="0" checked>
                       Don't publish
                     </label>
                   </div>

@@ -32,7 +32,7 @@
                     <div class="card-header">
                       <h3 class="card-title">Edit Storie</h3>
                     </div>
-              <form action="/posts/update/{{ $posts->id }}" method="post" enctype="multipart/form-data">
+              <form action="/admin/posts/update/{{ $posts->id }}" method="post" enctype="multipart/form-data">
               @csrf
               @method("put")
                 <div class="card-body">
@@ -60,13 +60,15 @@
                 <label>Publish settings</label>
                 <div class="form-group pl-1">
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="is_published" value="1" {{ $posts->is_published == '1' ? 'checked' : '' }}><label class="form-check-label">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="was_published" value="1" {{ $posts->was_published == '1' ? 'checked' : '' }}>
                           Publish
                       </label>
                     </option>
                   </div>
                   <div class="form-check">
-                      <input class="form-check-input" type="radio" name="is_published" value="0" {{ $posts->is_published == '0' ? 'checked' : '' }}><label class="form-check-label">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="was_published" value="0" {{ $posts->was_published == '0' ? 'checked' : '' }}>
                           Don't publish
                       </label></option>
                   </div>

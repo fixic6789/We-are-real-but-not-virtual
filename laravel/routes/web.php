@@ -27,21 +27,21 @@ Auth::routes([
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin');
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/admin/posts', [PostController::class, 'index'])->name('posts.index');
 
-Route::get('/posts/create', function () {
+Route::get('/admin/posts/create', function () {
     return view('posts.create');
 });
 
-Route::post('posts/post', [PostController::class, 'store'])->name('posts.store');
-Route::delete('posts/delete/{id}', [PostController::class, 'destroy']);
-Route::get('posts/edit/{id}', [PostController::class, 'edit']);
-Route::put('posts/update/{id}', [PostController::class, 'update'])->name('posts.update');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/admin/posts/post', [PostController::class, 'store'])->name('posts.store');
+Route::delete('/admin/posts/delete/{id}', [PostController::class, 'destroy']);
+Route::get('/admin/posts/edit/{id}', [PostController::class, 'edit']);
+Route::put('/admin/posts/update/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::get('/admin/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::delete('posts/deleteimage/{id}', [PostController::class, 'deleteImage'])->name('posts.deleteImage');
+Route::delete('/admin/posts/deleteimage/{id}', [PostController::class, 'deleteImage'])->name('posts.deleteImage');
 
-Route::delete('posts/deletecover/{id}', [PostController::class, 'deleteCover'])->name('posts.deleteCover');
+Route::delete('/admin/posts/deletecover/{id}', [PostController::class, 'deleteCover'])->name('posts.deleteCover');
 
 
 
