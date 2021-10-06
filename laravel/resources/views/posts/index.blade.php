@@ -16,7 +16,7 @@
       <div class="d-flex bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight"><h2>Stories</h2></div>
         <div class="p-2 bd-highlight">
-          <a href="/admin/posts/create" type="button" class="btn btn-secondary mt-1">Create</a>
+          <a href="{{ route('posts.create') }}" type="button" class="btn btn-secondary mt-1">Create</a>
         </div>
       </div>
       
@@ -50,9 +50,9 @@
                 @endif
               </td>
               <td>
-              <a href="/admin/posts/edit/{{ $post->id }}" class="edit" data-toggle="modal"><i class="material-icons" id="edit-icon" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
+              <a href="{{ route('posts.edit', $post->id) }}" class="edit" data-toggle="modal"><i class="material-icons" id="edit-icon" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
 
-              <a href="#" class="delete" onclick="event.preventDefault(); document.getElementById('/admin/posts/delete/{{ $post->id }}').submit();">
+              <a href="#" class="delete" onclick="confirm('Are you sure?'); event.preventDefault(); document.getElementById('/admin/posts/delete/{{ $post->id }}').submit();">
                 <i class="material-icons" title="" id="delete-icon" data-original-title="Delete"></i>
               </a>
 
@@ -61,6 +61,7 @@
 								@method('delete')
 								<input type="hidden" value="{{ $post->id }}" name="id">
 							</form> 
+
               </td>
             </tr>
             @endforeach

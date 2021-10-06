@@ -32,7 +32,7 @@
                     <div class="card-header">
                       <h3 class="card-title">Edit Storie</h3>
                     </div>
-              <form action="/admin/posts/update/{{ $posts->id }}" method="post" enctype="multipart/form-data">
+              <form action="{{ route('posts.update', $posts->id) }}" method="post" enctype="multipart/form-data">
               @csrf
               @method("put")
                 <div class="card-body">

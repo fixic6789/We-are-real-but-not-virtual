@@ -11,10 +11,10 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/admin">Admin</a>
+                                        <a class="dropdown-item" href="{{ route('admin') }}">Admin</a>
                                         <a class="dropdown-item" href="#!">Another action</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/logout">Logout</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                                     </div>
                                 </li>
                             </ul>

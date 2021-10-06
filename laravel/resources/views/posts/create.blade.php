@@ -24,7 +24,7 @@
                 <div class="card-header" style="background-color: #435d7d;">
                   <h3 class="card-title">Add Storie</h3>
                 </div>
-              <form action="/admin/posts/post" method="post" enctype="multipart/form-data">
+              <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
               @csrf
                 <div class="card-body pb-1">
                   <div class="form-group">
