@@ -10931,13 +10931,13 @@ var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jqu
 
 $("#coverForm").fileinput({
   uploadUrl: "/public/cover",
-  initialPreview: cover,
+  initialPreview: "<img src='/cover/".concat(post.cover, "' class='file-preview-image' alt='").concat(post.cover, "'>"),
   initialPreviewConfig: [{
-    caption: coverName,
-    size: coverSize,
+    caption: post.cover,
+    size: post.cover_size,
     showDrag: false,
     showRemove: false,
-    url: coverDeleteUrl,
+    url: "/posts/deletecover/".concat(post.id),
     minFileCount: 1
   }],
   ajaxDeleteSettings: {
@@ -10956,21 +10956,23 @@ $("#createForm").fileinput({
   allowedFileExtensions: ['jpeg', 'jpg', 'png', 'gif', 'pdf']
 });
 var initialPreviewConfigArray = [];
+var initialPreviewArray = [];
 
-for (var i = 0; i < imageName.length; i++) {
+for (var i = 0; i < images.length; i++) {
   initialPreviewConfigArray.push({
-    caption: imageName[i],
-    size: imageSize[i],
+    caption: images[i].image,
+    size: images[i].image_size,
     key: i,
-    url: imageDeleteUrl[i],
+    url: "/admin/posts/deleteimage/".concat(images[i].id),
     showDrag: false
   });
+  initialPreviewArray[i] = "<img src='/images/".concat(images[i].image, "' class='file-preview-image'>");
 }
 
 $("#updateForm").fileinput({
   mainClass: "input-group-lg",
   overwriteInitial: false,
-  initialPreview: posts,
+  initialPreview: initialPreviewArray,
   initialPreviewConfig: initialPreviewConfigArray,
   maxFileCount: 7,
   maxTotalFileCount: 7,

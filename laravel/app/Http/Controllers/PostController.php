@@ -26,6 +26,8 @@ class PostController extends Controller
     {   
         $posts = Post::latest()->paginate(25);
 
+        dd($posts[2]);
+
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -113,19 +115,10 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        foreach ($post->images as $key => $image) {
-            $images[] = "<img src='/images/$image->image' class='file-preview-image' alt='$image->image'>";
-            $imageName[] = $image->image;
-            $imageSize[] = $image->image_size;
-            $imageDeleteUrl[] = "/posts/deleteimage/$image->id";
-        }
 
-        $cover = "<img src='/cover/$post->cover' class='file-preview-image' alt='$post->cover'>";
-        $coverName = $post->cover;
-        $coverSize = $post->cover_size;
-        $coverDeleteUrl = "/posts/deletecover/$post->id";
+        $images = $post->images;
 
-        return view('posts.edit', ['posts'=>$post, 'images'=>$images, 'imageName'=>$imageName, 'imageSize'=>$imageSize, 'imageDeleteUrl'=>$imageDeleteUrl, 'cover'=>$cover, 'coverName'=>$coverName, 'coverSize'=>$coverSize, 'coverDeleteUrl'=>$coverDeleteUrl]);
+        return view('posts.edit', ['post' => $post, 'images' => $images]);
     }
 
     /**
