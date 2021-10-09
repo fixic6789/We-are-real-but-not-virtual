@@ -2,17 +2,15 @@ const { nodeName } = require("jquery");
 
 $("#coverForm").fileinput({
     uploadUrl: "/public/cover",
-    initialPreview: cover,
-    initialPreviewConfig: [
-        {
-            caption: coverName,
-            size: coverSize,
-            showDrag: false,
-            showRemove: false,
-            url: coverDeleteUrl,
-            minFileCount: 1,
-        },
-    ],
+    initialPreview: `<img src='/cover/${post.cover}' class='file-preview-image' alt='${post.cover}'>`,
+    initialPreviewConfig: [{
+        caption: post.cover,
+        size: post.cover_size,
+        showDrag: false,
+        showRemove: false,
+        url: `/posts/deletecover/${post.id}`,
+        minFileCount: 1,
+    }, ],
     ajaxDeleteSettings: {
         type: 'DELETE',
         headers: {
@@ -20,7 +18,7 @@ $("#coverForm").fileinput({
         },
     },
     showRemove: false,
-    allowedFileExtensions: ['jpeg','jpg','png','gif','pdf'],
+    allowedFileExtensions: ['jpeg', 'jpg', 'png', 'gif', 'pdf'],
 });
 
 
@@ -28,31 +26,34 @@ $("#createForm").fileinput({
     uploadUrl: "/public/images",
     showRemove: true,
     showCancel: false,
-    allowedFileExtensions: ['jpeg','jpg','png','gif','pdf'],
+    allowedFileExtensions: ['jpeg', 'jpg', 'png', 'gif', 'pdf'],
 });
 
 var initialPreviewConfigArray = [];
+var initialPreviewArray = [];
 
-for (var i = 0; i < imageName.length; i++) {
-  initialPreviewConfigArray.push({
-      caption: imageName[i],
-      size: imageSize[i],
-      key: i,
-      url: imageDeleteUrl[i],
-      showDrag: false,
-  });
+for (var i = 0; i < images.length; i++) {
+    initialPreviewConfigArray.push({
+        caption: images[i].image,
+        size: images[i].image_size,
+        key: i,
+        url: `/admin/posts/deleteimage/${images[i].id}`,
+        showDrag: false,
+    });
+
+    initialPreviewArray[i] = `<img src='/images/${images[i].image}' class='file-preview-image'>`;
 }
 
 $("#updateForm").fileinput({
     mainClass: "input-group-lg",
     overwriteInitial: false,
-    initialPreview: posts,
+    initialPreview: initialPreviewArray,
     initialPreviewConfig: initialPreviewConfigArray,
     maxFileCount: 7,
     maxTotalFileCount: 7,
     validateInitialCount: true,
     minFileCount: 1,
-    allowedFileExtensions: ['jpeg','jpg','png','gif','pdf'],
+    allowedFileExtensions: ['jpeg', 'jpg', 'png', 'gif', 'pdf'],
     ajaxDeleteSettings: {
         type: 'DELETE',
         headers: {
