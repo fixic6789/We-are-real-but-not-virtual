@@ -11,11 +11,12 @@
     
     @include('layouts.header')
 @push('app')
-    <link rel="stylesheet" href="{{ secure_asset('resources/css/app.css') }}">
+    <!-- <link rel="stylesheet" href="{{ secure_asset('resources/css/app.css') }}"> -->
 @endpush
 @include('layouts.blocks.welcome')
 @include('layouts.blocks.forms')
 @include('layouts.blocks.photo_stories')
+@include('layouts.blocks.best_photostories')
 @push('app')
     link
 @endpush  
