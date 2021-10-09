@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -43,6 +44,10 @@ Route::delete('posts/deleteimage/{id}', [PostController::class, 'deleteImage'])-
 
 Route::delete('posts/deletecover/{id}', [PostController::class, 'deleteCover'])->name('posts.deleteCover');
 
+
+
+Route::get('/forms',[ContactController::class, 'contact']);
+Route::post('/',[ContactController::class, 'sendEmail'])->name('contact.store');
 
 
 

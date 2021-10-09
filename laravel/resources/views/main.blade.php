@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="storage/img/logo2.png" />
 </head>
 <body>
-    
+
     @include('layouts.header')
 @push('app')
     <link rel="stylesheet" href="{{ secure_asset('resources/css/app.css') }}">
@@ -18,7 +18,7 @@
 @include('layouts.blocks.photo_stories')
 @push('app')
     link
-@endpush  
+@endpush
 @push('forms')
     <script href="{{ secure_asset('resources/js/forms.js') }}"></script>
 @endpush

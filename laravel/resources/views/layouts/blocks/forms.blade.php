@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">  
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
 </head>
 <body>
     <div class="modal-windows">
@@ -27,11 +27,17 @@
                             </svg>
                     </button>
             </div>
-    
+
             <div class="form-body">
-                <form action="POST">
-                    <input type="text" class="form-contact-info" placeholder="Enter the contact information..." required>
-                    <textarea class="form-message" placeholder="Enter your message..." required></textarea>
+                @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
+                <form action="" method="POST" action="{{route('contact.store')}}">
+                    @csrf
+                    <input type="text" name="name" class="form-contact-info" placeholder="Enter the contact information..." required>
+                    <textarea class="form-message" name="text" placeholder="Enter your message..." required></textarea>
                     <input type="submit" class="form-submit" value="Send">
                 </form>
             </div>
@@ -58,13 +64,24 @@
             </div>
 
             <div class="form-body">
-                <form action="POST">
-                    <input type="text" class="form-contact-info" placeholder="Enter the contact information..." required>
-                    <textarea class="form-message" placeholder="Enter your message..." required></textarea>
+                <form action="" method="POST" action="{{route('contact.store')}}">
+                    @csrf
+                    <input type="text" class="form-contact-info" name="name" placeholder="Enter the contact information..." required>
+                    <textarea class="form-message" name="text" placeholder="Enter your message..." required></textarea>
                     <input type="submit" class="form-submit" value="Send">
                 </form>
             </div>
         </div>
+
+
+
+
+
+        
+
+
+
+
     </div>
     <script src="{{asset('js/forms.js')}}"></script>
 </body>
