@@ -16,7 +16,7 @@ header {
 }
 
 .fixed-background {
-    background-image: url(/storage/img/background.png);
+    background-image: url(/img/background.png);
     background-repeat: no-repeat;
     position: fixed;
     width: 100%;
@@ -120,7 +120,7 @@ header {
     flex-flow: column;
     align-content: center;
     align-items: flex-end;
-    background-image: url(/storage/img/photographer.png);
+    background-image: url(/img/photographer.png);
     background-repeat: no-repeat;
 }
 
