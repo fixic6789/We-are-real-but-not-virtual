@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
     <div class="photo-stories">
@@ -28,9 +28,9 @@
         
         <div class="photo-block">
             <div class="polaroid-photos">
-                <img class="polaroid-photo photo-1" src="/storage/img/Group 19.png" alt="">
-                <img class="polaroid-photo photo-2" src="/storage/img/Group 21.png" alt="">
-                <img class="polaroid-photo photo-3" src="/storage/img/Group 20.png" alt="">
+                <img class="polaroid-photo photo-1" src="/img/Group 19.png" alt="">
+                <img class="polaroid-photo photo-2" src="/img/Group 21.png" alt="">
+                <img class="polaroid-photo photo-3" src="/img/Group 20.png" alt="">
             </div>
         </div>
 

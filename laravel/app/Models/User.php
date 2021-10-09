@@ -41,4 +41,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Create admin.
+     *
+     * @param array $details
+     * @return array
+     */
+    public function createAdmin(array $details) : self
+    {
+        $user = new self($details);
+
+        $user->save();
+
+        return $user;
+    }
+
+    /**
+     * Checks if super admin exists
+     *
+     * @return integer
+     */
+
 }

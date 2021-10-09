@@ -1,17 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-font-family: Poppins;
-font-style: normal;
-font-weight: normal;
-
-color: #000000;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
 }
-.modal-windows{
+
+.modal-windows {
     display: none;
     position: fixed;
     top: 0;
@@ -22,11 +20,13 @@ color: #000000;
     z-index: 9998;
     transition: 0.5s all;
 }
-.modal-windows.active{
+
+.modal-windows.active {
     display: block;
     transition: 0.5s all;
 }
-.feedback{
+
+.feedback {
     display: none;
     position: fixed;
     top: 12%;
@@ -38,12 +38,13 @@ color: #000000;
     flex-direction: column;
     z-index: 9999;
 }
-.feedback.active{
+
+.feedback.active {
     display: flex;
     transition: 0.5s all;
 }
 
-.form-head{
+.form-head {
     display: flex;
     width: 100%;
     height: 56px;
@@ -53,7 +54,8 @@ color: #000000;
     align-items: center;
     gap: 13%;
 }
-.form-head h3{
+
+.form-head h3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +63,8 @@ color: #000000;
     font-size: 18px;
     line-height: 27px;
 }
-.form-head button{
+
+.form-head button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,14 +72,17 @@ color: #000000;
     cursor: pointer;
     background: none;
 }
-.form-head button:hover{
+
+.form-head button:hover {
     fill: #aaaaaa;
 }
-.form-body{
+
+.form-body {
     width: 100%;
     height: 100%;
 }
-.form-body form{
+
+.form-body form {
     display: flex;
     width: 100%;
     height: 100%;
@@ -86,7 +92,8 @@ color: #000000;
     gap: 5%
 }
 
-.form-body form input[type=text], textarea{
+.form-body form input[type=text],
+textarea {
     border: none;
     background: #FFFFFF;
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -98,16 +105,17 @@ color: #000000;
     font-weight: normal;
 }
 
-.form-contact-info{
+.form-contact-info {
     width: 352px;
     height: 68px;
 }
 
-.form-message{
+.form-message {
     width: 352px;
     height: 155px;
 }
-.form-submit{
+
+.form-submit {
     background: #FFE8E8;
     width: 100px;
     height: 50px;
@@ -118,12 +126,13 @@ color: #000000;
     font-style: normal;
     font-weight: normal;
 }
-.form-submit:hover{
+
+.form-submit:hover {
     border: 0.5px solid #000000;
     border-radius: 5px;
 }
 
-.order{
+.order {
     display: none;
     position: fixed;
     top: 12%;
@@ -134,9 +143,9 @@ color: #000000;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
     flex-direction: column;
     z-index: 9999;
-
 }
-.order.active{
+
+.order.active {
     display: flex;
     transition: 0.5s all;
 }
