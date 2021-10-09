@@ -52,7 +52,7 @@
               <td>
               <a href="{{ route('posts.edit', $post->id) }}" class="edit" data-toggle="modal"><i class="material-icons" id="edit-icon" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
 
-              <a href="#" class="delete" onclick="deleteBtn()">
+              <a href="#" class="delete" onclick="deleteBtn({{ $post->id }})">
                 <i class="material-icons" title="" id="delete-icon" data-original-title="Delete"></i>
               </a>
 
@@ -73,12 +73,11 @@
       </div>
     </div>
     <script>
-      console.log(post.id);
       function deleteBtn(id) {
         let result = confirm('Are you sure?');
         if(result == true) {
           event.preventDefault(); 
-          document.getElementById(`/admin/posts/delete/${post.id}`).submit();
+          document.getElementById(`/admin/posts/delete/${id}`).submit();
         } 
       }
     </script>
