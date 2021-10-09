@@ -8,8 +8,8 @@
 	</div>
 @elseif ($message = Session::get('deleted'))
 	<div class="alert alert-danger" role="alert">
-        {{ $message }}
-    </div>
+    {{ $message }}
+  </div>
 @endif
 
     <div class="container-fluid">
@@ -52,7 +52,11 @@
               <td>
               <a href="{{ route('posts.edit', $post->id) }}" class="edit" data-toggle="modal"><i class="material-icons" id="edit-icon" data-toggle="tooltip" title="" data-original-title="Edit"></i></a>
 
+<<<<<<< HEAD
               <a href="#" class="delete" onclick="deleteBtn({{ $post->id }})">
+=======
+              <a href="#" class="delete" onclick="deleteBtn()">
+>>>>>>> b4968b147f4791517ae2e6e48e67185fc6d2a267
                 <i class="material-icons" title="" id="delete-icon" data-original-title="Delete"></i>
               </a>
 
@@ -73,12 +77,21 @@
       </div>
     </div>
     <script>
+<<<<<<< HEAD
       function deleteBtn(id) {
         let result = confirm('Are you sure?');
         if(result == true) {
           event.preventDefault(); 
           document.getElementById(`/admin/posts/delete/${id}`).submit();
         } 
+=======
+      function deleteBtn() {
+        let result = confirm('Are you sure?'); 
+        if(result == true) {
+          event.preventDefault(); 
+          document.getElementById('/admin/posts/delete/{{ $post->id }}').submit();
+        }
+>>>>>>> b4968b147f4791517ae2e6e48e67185fc6d2a267
       }
     </script>
    @include('layouts.includes.scripts')
