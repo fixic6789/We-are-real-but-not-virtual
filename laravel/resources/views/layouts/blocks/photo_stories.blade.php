@@ -28,9 +28,9 @@
         
         <div class="photo-block">
             <div class="polaroid-photos">
-                <img class="polaroid-photo photo-1" src="/storage/img/Group 19.png" alt="">
-                <img class="polaroid-photo photo-2" src="/storage/img/Group 21.png" alt="">
-                <img class="polaroid-photo photo-3" src="/storage/img/Group 20.png" alt="">
+                <img class="polaroid-photo photo-1" src="/img/Group 19.png" alt="">
+                <img class="polaroid-photo photo-2" src="/img/Group 21.png" alt="">
+                <img class="polaroid-photo photo-3" src="/img/Group 20.png" alt="">
             </div>
         </div>
 

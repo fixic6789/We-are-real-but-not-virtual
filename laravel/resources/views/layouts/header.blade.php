@@ -64,9 +64,9 @@
                 </svg>
 
                <div class="socials">
-                   <img src="/storage/img/instagram.png" alt="">
-                   <img src="/storage/img/facebook.png" alt="">
-                   <img src="/storage/img/twiter.png" alt="">
+                   <img src="/img/instagram.png" alt="">
+                   <img src="/img/facebook.png" alt="">
+                   <img src="/img/twiter.png" alt="">
                 </div>
 
                 <svg width="1" height="80" viewBox="0 0 1 80" fill="none" xmlns="http://www.w3.org/2000/svg">
