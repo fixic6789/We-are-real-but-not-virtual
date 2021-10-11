@@ -25,7 +25,7 @@ class PostController extends Controller
     public function index()
     {   
         $posts = Post::latest()->paginate(25);
-        
+
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -57,11 +57,12 @@ class PostController extends Controller
         ]);
 
         if($request->hasFile("cover")) 
-        {
+        {   
+            $destination_path = 'public/covers/';
             $file = $request->file("cover");
             $imageName = time().'_'.$file->getClientOriginalName();
-            $file->move(\public_path("cover/"), $imageName);
-            $coverSize = File::size(\public_path("cover/".$imageName));
+            $file->storeAs($destination_path, $imageName);
+            $coverSize = $request->file("cover")->getSize();
 
             $post = new Post([
                 "title" => $request->title,
@@ -75,7 +76,8 @@ class PostController extends Controller
         }
 
         if($request->hasFile("images")) 
-        {
+        {  
+            $destination_path = 'public/images/';
             $files = $request -> file("images");
             foreach($files as $file)
             {   
@@ -84,7 +86,7 @@ class PostController extends Controller
                 $request['post_id'] = $post->id;
                 $request['image'] = $imageName;
                 $request['image_size'] = $imageSize;
-                $file->move(\public_path("/images"), $imageName);
+                $file->storeAs($destination_path, $imageName);
                 Image::create($request->all());
             } 
         }
@@ -139,13 +141,13 @@ class PostController extends Controller
 
         if($request->hasFile("cover"))
         {
-            if(File::exists("cover/".$post->cover))
+            if(File::exists(storage_path("/app/public/covers/".$post->cover)))
             {
-                File::delete("cover/".$post->cover);
+                File::delete(storage_path("/app/public/covers/".$post->cover));
             }
             $file = $request->file("cover");
             $post->cover = time()."_".$file->getClientOriginalName();
-            $file->move(\public_path("/cover"),$post->cover);
+            $file->move(\storage_path("/app/public/covers/"),$post->cover);
             $request['cover'] = $post->cover;
         }
 
@@ -167,7 +169,7 @@ class PostController extends Controller
                 $request['post_id'] = $post->id;
                 $request['image'] = $imageName;
                 $request['image_size'] = $imageSize;
-                $file->move(\public_path("images"), $imageName);
+                $file->move(\storage_path("app/public/images"), $imageName);
                 Image::create($request->all());
             }
         }
@@ -184,38 +186,37 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $posts = Post::findOrFail($id);
+        $post = Post::findOrFail($id);
 
-        if (File::exists("cover/".$posts->cover))
-        {
-            File::delete("cover/".$posts->cover);
+        $images = Image::where("post_id", $post->id)->get();
+        $cover = $post->cover;
+        
+        if(File::exists(storage_path("app/public/covers/".$cover))) {
+            File::delete(storage_path("app/public/covers/".$cover));
         } else {
             dd('File does not exist.');
         }
 
-        $images = Image::where("post_id", $posts->id)->get();
-        
-        foreach($posts->images as $key => $image) 
-        {   
-            if(File::exists(public_path("images/".$images[$key]->image))) 
-            {
-                File::delete(public_path("images/".$images[$key]->image));
+        foreach ($post->images as $key => $image) {
+            if(File::exists(storage_path("app/public/images/".$images[$key]->image))) {
+                File::delete(storage_path("app/public/images/".$images[$key]->image));
                 $image->delete();
             } else {
                 dd('File does not exist.');
             }
+            
         }
 
-        $posts->delete();
+        $post->delete();
         return back()->with('deleted','Story deleted successfully');
     }
 
     public function deleteImage($id)
     {
         $images = Image::findOrFail($id);
-        if(File::exists("images/".$images->image)) 
+        if(File::exists(storage_path("app/public/images/".$images->image))) 
         {
-            File::delete("images/".$images->image);
+            File::delete(storage_path("app/public/images/".$images->image));
         }
         
         Image::find($id)->delete();
@@ -229,9 +230,9 @@ class PostController extends Controller
     public function deleteCover($id)
     {
         $cover = Post::findOrFail($id)->cover;
-        if(File::exists("cover/".$cover)) 
+        if(File::exists(storage_path("app/public/covers/".$cover))) 
         {
-            File::delete("cover/".$cover);
+            File::delete(storage_path("app/public/covers/".$cover));
         }
 
         return json_encode([
