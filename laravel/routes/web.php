@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 

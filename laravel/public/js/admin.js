@@ -10931,7 +10931,7 @@ var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jqu
 
 $("#coverForm").fileinput({
   uploadUrl: "/public/cover",
-  initialPreview: "<img src='/cover/".concat(post.cover, "' class='file-preview-image' alt='").concat(post.cover, "'>"),
+  initialPreview: "<img src='/covers/".concat(post.cover, "' class='file-preview-image' alt='").concat(post.cover, "'>"),
   initialPreviewConfig: [{
     caption: post.cover,
     size: post.cover_size,
