@@ -20,6 +20,7 @@
 @include('layouts.blocks.photo_stories')
 @include('layouts.blocks.best_photostories')
 @include('layouts.blocks.about')
+@include('layouts.blocks.services')
 @push('app')
     link
 @endpush  
