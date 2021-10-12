@@ -190,7 +190,7 @@ class PostController extends Controller
 
         $images = Image::where("post_id", $post->id)->get();
         $cover = $post->cover;
-        
+
         if(File::exists(storage_path("app/public/covers/".$cover))) {
             File::delete(storage_path("app/public/covers/".$cover));
         } else {
