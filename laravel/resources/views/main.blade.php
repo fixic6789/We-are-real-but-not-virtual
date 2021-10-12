@@ -21,6 +21,7 @@
 @include('layouts.blocks.best_photostories')
 @include('layouts.blocks.about')
 @include('layouts.blocks.services')
+@include('layouts.footer')
 @push('app')
     link
 @endpush  

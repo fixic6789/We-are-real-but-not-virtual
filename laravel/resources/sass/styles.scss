@@ -503,6 +503,78 @@ header {
     gap: 25%;
     text-decoration: none;   
 }
+hr{
+    opacity: 0.5;
+    border: 1px solid #000000;
+}
+footer{
+    width: 100%;
+    padding: 40px 0;
+}
+footer a{
+    text-decoration: none;
+}
+.footer{
+    width: 100%;
+    height: 172px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    line-height: 21px;
+}
+.footer-container{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.logo-and-name, .email-adress, .footer-socials-phone {
+    height: 100%;
+    width: 30%;
+}
+.logo-and-name{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    justify-content: center;
+}
+.logo-and-name img{
+    max-width: 15%;
+}
+
+.email-adress{
+    display: flex;
+    flex-direction: column;
+    gap: 15%;
+    align-content: center;
+    justify-content: center;
+}
+.footer-socials-phone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 5%;
+}
+.footer-socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap: 10%;
+}
+.footer-socials-phone p{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap: 5%;
+}
+
+
 
 
 @media screen and (min-width: 1200px) {}
