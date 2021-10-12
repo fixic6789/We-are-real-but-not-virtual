@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>We are real but not virtual</title>
     <link rel="icon" type="image/png" href="storage/img/logo2.png" />
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">  
 </head>
 <body>
     
