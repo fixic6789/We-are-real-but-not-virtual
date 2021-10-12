@@ -7,7 +7,6 @@
         <svg width="1" height="80" viewBox="0 0 1 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="0.500122" y1="2.18557e-08" x2="0.500119" y2="80" stroke="black"/>
             </svg>
-            
       </div>
         <div class="photo-stories-text">
             <h2>Photo stories</h2>
