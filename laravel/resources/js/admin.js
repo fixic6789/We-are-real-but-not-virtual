@@ -2,7 +2,7 @@ const { nodeName } = require("jquery");
 
 $("#coverForm").fileinput({
     uploadUrl: "/public/cover",
-    initialPreview: `<img src='/cover/${post.cover}' class='file-preview-image' alt='${post.cover}'>`,
+    initialPreview: `<img src='/covers/${post.cover}' class='file-preview-image' alt='${post.cover}'>`,
     initialPreviewConfig: [{
         caption: post.cover,
         size: post.cover_size,
