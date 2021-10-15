@@ -42,3 +42,4 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/stories', [ViewStoriesController::class, 'StoriesList'])->name('stories');
+Route::get('/storie/{id}', [ViewStoriesController::class, 'StorieView'])->name('storie');
