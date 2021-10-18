@@ -32,8 +32,8 @@ Route::get('/admin/posts', [PostController::class, 'index'])->name('posts.index'
 
 Route::get('/admin/posts/create', function () {
     return view('posts.create');
-<<<<<<< HEAD
-});
+
+})->name('posts.create');
 
 Route::post('posts/post', [PostController::class, 'store'])->name('posts.store');
 Route::delete('posts/delete/{id}', [PostController::class, 'destroy']);
@@ -54,9 +54,7 @@ Route::post('/',[ContactController::class, 'sendEmail'])->name('contact.store');
 
 
 
-=======
-})->name('posts.create');
->>>>>>> 0abe770a67a50859f007c01e1781e1f6f53fd59d
+
 
 Route::post('/admin/posts/post', [PostController::class, 'store'])->name('posts.store');
 Route::delete('/admin/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.delete');
@@ -66,20 +64,6 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::delete('/admin/posts/deleteimage/{id}', [PostController::class, 'deleteImage'])->name('posts.deleteImage');
 
-<<<<<<< HEAD
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-=======
 Route::delete('/admin/posts/deletecover/{id}', [PostController::class, 'deleteCover'])->name('posts.deleteCover');
->>>>>>> 0abe770a67a50859f007c01e1781e1f6f53fd59d
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

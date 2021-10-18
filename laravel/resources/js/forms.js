@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let orderBtn = document.querySelectorAll(".order-photo");
     let order = document.querySelector(".order");
 
+    let chatBtn = document.querySelectorAll(".live-chat");
+    let chat = document.querySelector(".chat");
+
+
     function openWindow(btn, formName) {
         btn.forEach(button => {
             button.addEventListener("click", e => {
@@ -49,4 +53,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     openWindow(orderBtn, order);
     closeWindow(order);
+
+    //openWindow(chatBtn, chat);
+   // closeWindow(chat);
+
+
+
+
+
 });
