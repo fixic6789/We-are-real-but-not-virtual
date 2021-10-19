@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>We are real but not virtual</title>
     <link rel="icon" type="image/png" href="storage/img/logo2.png" />
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">  
 </head>
 <body>
 
@@ -17,6 +19,9 @@
 @include('layouts.blocks.forms')
 @include('layouts.blocks.photo_stories')
 @include('layouts.blocks.best_photostories')
+@include('layouts.blocks.about')
+@include('layouts.blocks.services')
+@include('layouts.footer')
 @push('app')
     link
 @endpush

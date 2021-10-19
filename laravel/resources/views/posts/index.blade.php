@@ -38,7 +38,7 @@
             <tr class="storie-label">
               <td>{{ $post->id }}</td>
               <td>
-              <img width="50px" src="{{ asset('cover/').'/'.$post->cover }}" class="img-responsive"></td>
+              <img width="50px" src="{{ asset('covers').'/'.$post->cover }}" class="img-responsive"></td>
               <td>{{ $post->title }}</td>
               <td><p class="description">{{ $post->body }}</p></td>
               <td>{{ date_format($post->created_at, 'jS M Y') }}</td>
